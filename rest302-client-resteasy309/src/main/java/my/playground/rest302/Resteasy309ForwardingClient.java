@@ -12,10 +12,11 @@ public class Resteasy309ForwardingClient {
                 (ResteasyWebTarget) ResteasyClientBuilder.newClient().target("http://localhost:8080");
         ForwardingResourceProxy proxy = target.proxy(ForwardingResourceProxy.class);
 
+        // ForwardingResourceProxy proxy = ProxyFactory.create(ForwardingResourceProxy.class, "http://localhost:8080");
 
-        System.out.println("Result: " + proxy.redirectGet("static", 302));
 
-        // System.out.println("Result: " + proxy.redirectPost("static", 307));
+        System.out.println("GET: " + proxy.redirectGet("static", 302));
+        System.out.println("POST: " + proxy.redirectPost("static", 302));
 
     }
 
